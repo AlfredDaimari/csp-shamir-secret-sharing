@@ -1,0 +1,24 @@
+{
+  "name": "share_a_secret",
+  "version": "0.0.69",
+  "description": "a nodejs server that users can use to share a secret",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "nodemon src/index.js"
+  },
+  "keywords": [
+    "shamir",
+    "secret-sharing"
+  ],
+  "author": "Alfred Daimari / lakhanboy",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "express": "^4.18.0",
+    "random-bigint": "^0.0.1",
+    "socket.io": "^4.5.0",
+    "uniqid": "^5.4.0"
+  }
+}

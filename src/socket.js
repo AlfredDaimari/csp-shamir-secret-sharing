@@ -75,9 +75,7 @@ const forgeSecretForRoom = (roomID) => {
     const decShamir = new shamir.DecodeShamirSecret(shamirKeys)
     const secret = decShamir.getSecret()
 
-    for (let user of usersToSend) {
-        io.to(user).emit('secret:forged_secret', secret)
-    }
+    io.to(socketROOMS[roomID].creator_id).emit('secret:forged_secret', secret)
 
 }
 
@@ -115,6 +113,7 @@ io.on('connection', (socket) => {
         const new_roomID = uniqid()
         socketROOMS[new_roomID] = {
             id: new_roomID,
+            creator_id: socket.id,
             users: parseInt(args.users),
             mkeys: parseInt(args.mkeys),
             cur_users: [socket.id],
